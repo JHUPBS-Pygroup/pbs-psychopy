@@ -27,13 +27,6 @@ You can download a standalone Psychopy from its [github releast page](https://gi
 
 - **AUDIO dependency:** [download `pyo`](http://ajaxsoundstudio.com/software/pyo/) and install `pyo` indepdenently
 	 - `pyo` does not have a binary distribution in `pip`, so you cannot use `pip install` to install this package.
-	 - you may use `pygame` instead of `pyo`, but you have to change the configuration of psychopy. See [here](http://www.psychopy.org/api/preferences.html) for instructions: add these lines before you use psychopy audio modules.
-
-```python
-from psychopy import prefs
-prefs.general['audioLib'] = ['pyo']
-from psychopy import sound
-```
 
 ## MacOS Trouble-Shooting
 
@@ -56,6 +49,21 @@ $ xcode-select --install
 ```
 
 - Credits to this [Solution Source](https://apple.stackexchange.com/questions/254380/macos-sierra-invalid-active-developer-path)
+
+#### 2) Audio modules
+
+If you forget to install `pyo` package for Psychopy's audio system, you may encounter a problem telling you that Psychopy's audio system failed to load a module
+
+You have two solutions:
+
+1. Install `pyo`, see the process above
+2. You may use `pygame` instead of `pyo`, but you have to change the configuration of psychopy. See [here](http://www.psychopy.org/api/preferences.html) for instructions: add these lines **before you use psychopy audio modules**.
+
+```python
+from psychopy import prefs
+prefs.general['audioLib'] = ['pyo']
+from psychopy import sound
+```
 
 ## Windows Trouble-Shooting
 
